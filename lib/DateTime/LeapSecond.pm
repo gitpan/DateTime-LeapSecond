@@ -6,7 +6,7 @@ use strict;
 use vars qw( $VERSION );
 use vars qw( @RD @LEAP_SECONDS %RD_LENGTH );
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 # Generates a Perl binary decision tree
 sub _make_utx {
@@ -57,7 +57,7 @@ sub _init {
     $tmp .= "}\n";
 
     # NOTE: uncomment the line below to see the code:
-    # warn $tmp;
+    warn $tmp;
 
     eval $tmp;
 
@@ -151,7 +151,7 @@ __END__
 
 =head1 NAME
 
-DateTime::LeapSecond - leap seconds table and utilities
+DateTime::LeapSecond - DEPRECATED: use "DateTime" distribution instead
 
 =head1 SYNOPSIS
 
@@ -168,26 +168,33 @@ This module is used to calculate leap seconds for a given Rata Die
 day.  It is mostly intended for use by the DateTime.pm, rather than
 for external users.
 
-This library uses 1 second precision and is known to be accurate for
-dates until december 2003.
+This library is known to be accurate for dates until december 2003.
 
 There are no leap seconds before 1972, because that's the year this
 system was implemented.
 
-=head1 leap_seconds( $rd )
+B<NOTE: As of DateTime.pm 0.16, DateTime.pm implements this code in XS
+internally.  It also includes this module in the distribution in case
+the XS code cannot be compiled.>
+
+=over 4
+
+=item * leap_seconds( $rd )
 
 Returns the number of accumulated leap seconds for a given day,
 in the range 9 .. 32.
 
-=head1 extra_seconds( $rd )
+=item * extra_seconds( $rd )
 
 Returns the number of leap seconds for a given day,
 in the range -2 .. 2.
 
-=head1 day_length( $rd )
+=item * day_length( $rd )
 
 Returns the number of seconds for a given day,
 in the range 86398 .. 86402.
+
+=back
 
 =head1 AUTHOR
 
