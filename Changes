@@ -1,0 +1,10 @@
+Revision history for Perl extension DateTime::LeapSecond.
+
+0.02  Fork to DateTime::LeapSecond
+      Uses rd instead of system epoch
+      New API: leap_seconds( $rd ), extra_seconds( $rd )
+
+0.01  Wed May 29 14:15:00 2002
+	- original version; created by h2xs 1.21 with options
+		-X -n Date::Leapsecond
+
